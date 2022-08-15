@@ -130,6 +130,9 @@ def run_search():
 
             pdf.close()
             bolList.append(ff)
+            if ct > 0:
+                print('break')
+                break
                             
     df3 = dfOut.groupby('Product Name').sum()#.drop(columns = 'Page Number')
     df4 = dfOut.groupby('Filename').sum()#.drop(columns = 'Page Number')
