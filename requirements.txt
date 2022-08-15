@@ -2,3 +2,4 @@ pandas
 xlsxwriter
 PymuPDF
 streamlit
+openpyxl
