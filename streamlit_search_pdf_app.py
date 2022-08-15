@@ -4,7 +4,7 @@ import xlsxwriter
 import fitz
 import streamlit as st
 
-pdfDir = "D:\Dropbox\OBE\Python\Product Details"
+#pdfDir = "D:\Dropbox\OBE\Python\Product Details"
 fOut = 'Search_Products_List3.xlsx'
 txtStr = 'WW-110'
 
@@ -12,7 +12,7 @@ txtStr = 'WW-110'
 #plFile = 'CurtainWall_PartsList.xlsx'
 plFile = 'CW_Files.xlsx'
 txtList = ['Horiztonal','Vertical','Mullion']
-df = pd.read_excel(os.path.join(pdfDir,plFile))
+df = pd.read_excel(plFile)
 
 pdfList = []
 bolList = []
@@ -56,7 +56,7 @@ def run_search():
             # print whole path of files
             pgNm = []
             pdNm = []
-            pdf = fitz.open(os.path.join(pdfDir,pdfFile))
+            pdf = fitz.open(pdfFile)
             pg = 0
             for page in pdf:
                 mf = -1
