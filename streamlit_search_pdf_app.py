@@ -49,7 +49,7 @@ def run_search():
         if pdfFile.endswith('.pdf'):
             ff = False
             df2 = df.loc[(df['Filename'] == pdfFile)]
-            pdfList.append(pdfFile)
+            #pdfList.append(pdfFile)
             # print whole path of files
             pgNm = []
             pdNm = []
