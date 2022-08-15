@@ -14,7 +14,7 @@ plFile = 'CW_Files.xlsx'
 txtList = ['Horiztonal','Vertical','Mullion']
 df = pd.read_excel(plFile)
 
-pdfList = []
+pdfList = ["Reliance-TCIG-725-June2018.pdf"]
 bolList = []
 dtlList = []
 
@@ -43,7 +43,7 @@ def run_search():
     dfOut = pd.DataFrame(columns = cols)
     dfLine = pd.DataFrame(columns = cols)
 
-    for pdfFile in os.listdir("/"):
+    for pdfFile in pdfList: #os.listdir("/"):
         ct += 1
         prd1 = ''
         ln1 = ''
