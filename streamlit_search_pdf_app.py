@@ -139,7 +139,7 @@ def run_search():
         col1edge, col1, col2edge = st.columns((1, 9, 1))
         col1.header('Full Search Results')
         col1.dataframe(dfOut)
-        col1.st.download_button("Download Results", csv, st.session_state.fileOut,"text/csv", key='browser-data')
+        col1.download_button("Download Results", csv, st.session_state.fileOut,"text/csv", key='browser-data')
         col1.header('Number of results by product')
         col1.dataframe(df3)
         col1.header('Number of results by file')
