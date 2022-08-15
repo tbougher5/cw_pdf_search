@@ -128,10 +128,10 @@ def run_search():
             if ct > 48:
                 print('break')
                 break
-                            
+    dfOut['Count'] = df['Count'].astype('int')
     df3 = dfOut.groupby('Product Name').sum()#.drop(columns = 'Page Number')
     df4 = dfOut.groupby('Filename').sum()#.drop(columns = 'Page Number')
-    csv = convert_df(df)
+    csv = convert_df(dfOut)
 
     with st.container():
         #col1, col2 = st.columns(2)
