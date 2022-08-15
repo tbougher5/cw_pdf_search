@@ -8,23 +8,20 @@ import streamlit as st
 fOut = 'Search_Products_List3.xlsx'
 txtStr = 'WW-110'
 
-
 #plFile = 'CurtainWall_PartsList.xlsx'
 plFile = 'CW_Files.xlsx'
 txtList = ['Horiztonal','Vertical','Mullion']
 df = pd.read_excel(plFile)
 
-pdfList = ["Reliance-TCIG-725-June2018.pdf"]
+pdfList = df['Filename']
+#["Reliance-TCIG-725-June2018.pdf"]
 bolList = []
 dtlList = []
 
 #def convert_df(df):
 #    return df.to_csv().encode('utf-8')
 
-
 #csv = convert_df(df)
-
-
 
 def run_search():
 
@@ -36,9 +33,9 @@ def run_search():
     txtStr = st.session_state.srchStr
 
     cols = ['Product Name','Full Name','Secondary Heading','Filename','Detail Heading 1','Detail Heading 2','Page Number','Search String']
-    workbook = xlsxwriter.Workbook(fOut)
-    worksheet = workbook.add_worksheet("Details Parts List") 
-    worksheet.write_row(0,0,cols)
+    #workbook = xlsxwriter.Workbook(fOut)
+    #worksheet = workbook.add_worksheet("Details Parts List") 
+    #worksheet.write_row(0,0,cols)
 
     dfOut = pd.DataFrame(columns = cols)
     dfLine = pd.DataFrame(columns = cols)
@@ -56,6 +53,7 @@ def run_search():
             # print whole path of files
             pgNm = []
             pdNm = []
+            
             pdf = fitz.open(pdfFile)
             pg = 0
             for page in pdf:
@@ -121,16 +119,13 @@ def run_search():
                     #for prt in df2['OBE ITEM']:
                         for j in range(len(results)):
                             if txtStr in str(results[j]):  
-
                                 dfOut = dfOut.append({'Product Name':df2['Product Name'].values[0], 'Full Name':df2['Full Name'].values[0], 'Secondary Heading':df2['Secondary Heading'].values[0],\
                                     'Filename': pdfFile, 'Detail Heading 1': results[mf][0], 'Detail Heading 2':results[mf2][0], 'Page Number':pg,\
                                         'Search String':txtStr, 'Count':1}, ignore_index=True)
-
                                 row += 1               
-
             pdf.close()
             bolList.append(ff)
-            if ct > 0:
+            if ct > 48:
                 print('break')
                 break
                             
@@ -169,7 +164,6 @@ with st.container():
     col1.text('')
     col1.button(label='Calculate', key ='calc')
     #col1.button_calc = st.button(label='Calculate', key ='calc')
-
 
 if st.session_state.calc:
     run_search()
