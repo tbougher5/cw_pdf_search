@@ -18,10 +18,10 @@ pdfList = df['Filename']
 bolList = []
 dtlList = []
 
-#def convert_df(df):
-#    return df.to_csv().encode('utf-8')
+def convert_df(df):
+    return df.to_csv().encode('utf-8')
 
-#csv = convert_df(df)
+
 
 def run_search():
 
@@ -131,13 +131,14 @@ def run_search():
                             
     df3 = dfOut.groupby('Product Name').sum()#.drop(columns = 'Page Number')
     df4 = dfOut.groupby('Filename').sum()#.drop(columns = 'Page Number')
+    csv = convert_df(df)
 
     with st.container():
         #col1, col2 = st.columns(2)
         col1edge, col1, col2edge = st.columns((1, 9, 1))
         col1.header('Full Search Results')
         col1.dataframe(dfOut)
-        #col1.download_button("Download Results", csv, st.session_state.fileOut,"text/csv", key='browser-data')
+        col1.download_button("Download Results", csv, st.session_state.fileOut,"text/csv", key='browser-data')
         col1.header('Number of results by product')
         col1.dataframe(df3)
         col1.header('Number of results by file')
@@ -151,14 +152,16 @@ st.set_page_config(layout="wide")
 
 with st.container():
     col1edge, col1, col2edge = st.columns((1, 12, 1))
-    col1.title('OBE Installation Manual Parts Search')
+    col1.title('Installation Manual Parts Search')
     #col1.caption('Calculate the carbon footprint of a fenestration system for commercial buildings across the US')
+    col1.caption('')
+    col1.caption('Currently for curtain wall only')
     col1.caption('')
 
 with st.container():
     #col1, col2 = st.columns(2)
     col1edge, col1, col2, col3, col2edge = st.columns((1, 3, 3, 3, 1))
-    col1.text_input("Folder Path", value = 'D:\Dropbox\OBE\Python\Product Details', key="fldrPth")
+    col1.text_input("Folder Path", value = 'Not used currently', key="fldrPth")
     col2.text_input("Search String", value = 'WW-110', key="srchStr")
     col3.text_input("Output File", value = 'pdf_search_results.csv', key="fileOut")
     col1.text('')
