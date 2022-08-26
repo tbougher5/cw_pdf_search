@@ -3,3 +3,4 @@ xlsxwriter
 PymuPDF
 streamlit
 openpyxl
+google-cloud-storage
