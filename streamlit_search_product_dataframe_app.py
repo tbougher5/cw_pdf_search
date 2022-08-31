@@ -1,27 +1,13 @@
-import os
 import pandas as pd
 import xlsxwriter
-import fitz
 import streamlit as st
 import pickle
-
-#pdfDir = "D:\Dropbox\OBE\Python\Product Details"
-fOut = 'Search_Products_List3.xlsx'
-txtStr = 'WW-110'
 
 prdDFlist = [['All Products','DF_All_Products.sav'], ['Architectural Windows', 'DF_Architectural_Windows.sav'], ['Curtain Wall', 'DF_Curtain_Wall.sav'],['Entrances','DF_Entrances.sav'],['Storefront','DF_Storefront.sav'],['Window Wall','DF_Window_Wall.sav']]
 prdCat = ['All Products', 'Architectural Windows', 'Curtain Wall','Entrances','Storefront','Window Wall']
 prd = 'Curtain Wall'
 prdNum = 2
 
-
-#plFile = 'CurtainWall_PartsList.xlsx'
-#plFile = 'CW_Files.xlsx'
-#txtList = ['Horiztonal','Vertical','Mullion']
-#df = pd.read_excel(plFile)
-
-#pdfList = df['Filename']
-#["Reliance-TCIG-725-June2018.pdf"]
 bolList = []
 dtlList = []
 
@@ -63,9 +49,7 @@ def run_search():
     #dfLine = pd.DataFrame(columns = cols)
     #dfOut.to_csv(fOut)
     
-              
     csv = convert_df(dfOut)
-
 
     with st.container():
         #col1, col2 = st.columns(2)
