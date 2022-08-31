@@ -1,5 +1,3 @@
 pandas
-xlsxwriter
 streamlit
-openpyxl
 pickle
