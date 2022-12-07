@@ -2,7 +2,7 @@ import pandas as pd
 import streamlit as st
 import pickle
 
-prdDFlist = [['All Products','DF_All_Products.sav'], ['Architectural Windows', 'DF_Architectural_Windows.sav'], ['Curtain Wall', 'DF_Curtain_Wall.sav'],['Entrances','DF_Entrances.sav'],['Storefront','DF_Storefront.sav'],['Window Wall','DF_Window_Wall.sav']]
+prdDFlist = [['All Products','DF_All_Products_v2.sav'], ['Architectural Windows', 'DF_Architectural_Windows.sav'], ['Curtain Wall', 'DF_Curtain_Wall.sav'],['Entrances','DF_Entrances_v2.sav'],['Storefront','DF_Storefront_v2.sav'],['Window Wall','DF_Window_Wall.sav']]
 prdCat = ['All Products', 'Architectural Windows', 'Curtain Wall','Entrances','Storefront','Window Wall']
 prd = 'Curtain Wall'
 prdNum = 2
