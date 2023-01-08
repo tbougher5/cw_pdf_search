@@ -3,7 +3,7 @@ import streamlit as st
 import pickle
 
 prdDFlist = [['All Products','DF_All_Products_v4.sav'], ['Architectural Windows', 'DF_Architectural_Windows.sav'], ['Curtain Wall', 'DF_Curtain_Wall.sav']\
-             ,['Entrances','DF_Entrances_v3.sav'],['Storefront','DF_Storefront_v3.sav'],['Window Wall','DF_Window_Wall.sav'],['Sun Controls', 'DF_Sun_Control_v4.sav'],\
+             ,['Entrances','DF_Entrances_v3.sav'],['Storefront','DF_Storefront_v3.sav'],['Window Wall','DF_Window_Wall.sav'],['Sun Controls', 'DF_Sun_Controls_v4.sav'],\
              ['Florida Product Approval','DF_FPA.sav']]
 prdCat = ['All Products', 'Architectural Windows', 'Curtain Wall','Entrances','Storefront','Window Wall','Sun Controls','Florida Product Approval']
 prd = 'Curtain Wall'
