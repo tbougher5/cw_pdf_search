@@ -39,9 +39,9 @@ def run_search():
     print(dfPrd)
     print(prd)
     if prdCat == 'All Products':
-        dfOut = dfPrd.loc[(dfPrd['Text'].str.contains(txtStr,case=False))]
+        dfOut = dfPrd.loc[(dfPrd['Text'].str.contains(txtStr,case=False, na=False))]
     else:
-        dfOut = dfPrd.loc[(dfPrd['Text'].str.contains(txtStr,case=False)) & (dfPrd['Product Category'] == prdCat)]
+        dfOut = dfPrd.loc[(dfPrd['Text'].str.contains(txtStr,case=False, na=False)) & (dfPrd['Product Category'] == prdCat)]
 
     dfOut['Count'] = dfOut['Count'].astype('int')
     df3 = dfOut.groupby('Product').sum().drop(columns = 'Page Number')
