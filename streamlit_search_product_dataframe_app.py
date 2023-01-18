@@ -22,12 +22,16 @@ def run_search():
 
     #pdfDir = st.session_state.fldrPth
     fOut = st.session_state.fileOut
-    txtStr = st.session_state.srchStr
+    
     prdCat = st.session_state.pc
     
     if st.session_state.exStr == True:
-      txtStr = txtStr + '\b'
+      txtStr = st.session_state.srchStr + '\b'
+    else:
+      txtStr = st.session_state.srchStr
       
+    print(txtStr)
+    
     if st.session_state.hypStr == True:
       txtStr = txtStr.replace('-','*')
 
