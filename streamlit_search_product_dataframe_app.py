@@ -24,6 +24,9 @@ def run_search():
     fOut = st.session_state.fileOut
     txtStr = st.session_state.srchStr
     prdCat = st.session_state.pc
+    
+    if st.session_state.exStr == True:
+      txtStr = txtStr + '\b'
 
     for i in range(len(prdDFlist)):
         if prdCat in prdDFlist[i][0]:
@@ -83,8 +86,11 @@ with st.container():
     col2.text_input("Search String", value = 'WW-110', key="srchStr")
     col3.text_input("Output File", value = 'pdf_search_results.csv', key="fileOut")
     col1.text('')
+    col2.text('')
+    col3.text('')
     col1.checkbox('Exact part only (e.g., GP-100 but not GP-1001)', key='exStr', value=True)
     col2.checkbox('Include results without hyphen or space', key='hypStr', value=True)
+    col1.text('')
     col1.button(label='Calculate', key ='calc')
     #col1.button_calc = st.button(label='Calculate', key ='calc')
 
