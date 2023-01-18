@@ -29,8 +29,6 @@ def run_search():
       txtStr = st.session_state.srchStr + '\b'
     else:
       txtStr = st.session_state.srchStr
-      
-    print(txtStr)
     
     if st.session_state.hypStr == True:
       txtStr = txtStr.replace('-','*')
@@ -45,8 +43,8 @@ def run_search():
     #worksheet = workbook.add_worksheet("Details Parts List") 
     #worksheet.write_row(0,0,cols)
     dfPrd = pickle.load(open(dfFile,'rb'))
-    print(dfPrd)
-    print(prd)
+    #print(dfPrd)
+    #print(prd)
     if prdCat == 'All Products':
         dfOut = dfPrd.loc[(dfPrd['Text'].str.contains(txtStr,case=False, na=False, regex=True))]
     else:
@@ -71,6 +69,7 @@ def run_search():
         col1.dataframe(df3)
         col1.header('Number of results by file')
         col1.dataframe(df4)
+        col1.text(txtStr)
 # closing the pdf file object
 
 # filePath is a string that contains the path to the pdf
