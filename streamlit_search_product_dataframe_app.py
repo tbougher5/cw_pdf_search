@@ -71,9 +71,8 @@ st.set_page_config(layout="wide")
 with st.container():
     col1edge, col1, col2edge = st.columns((1, 12, 1))
     col1.title('Web Details Parts Search')
-    #col1.caption('Calculate the carbon footprint of a fenestration system for commercial buildings across the US')
     col1.caption('')
-    col1.caption('Web details only - Installation manuals loaded soon')
+    col1.caption('Contains web details, installation manuals, and Florida Product Approvals')
     col1.caption('Currently some details missing for Entrances and Windows due to PDF issues')
     col1.caption('')
 
@@ -84,6 +83,8 @@ with st.container():
     col2.text_input("Search String", value = 'WW-110', key="srchStr")
     col3.text_input("Output File", value = 'pdf_search_results.csv', key="fileOut")
     col1.text('')
+    col1.checkbox('Exact part only (e.g., GP-100 but not GP-1001)', key='exStr', value=True)
+    col2.checkbox('Include results without hyphen or space', key='hypStr', value=True)
     col1.button(label='Calculate', key ='calc')
     #col1.button_calc = st.button(label='Calculate', key ='calc')
 
