@@ -25,10 +25,10 @@ def run_search():
     
     prdCat = st.session_state.pc
     
-    if st.session_state.exStr == True:
-      txtStr = st.session_state.srchStr + '\b'
-    else:
-      txtStr = st.session_state.srchStr
+    #if st.session_state.exStr == True:
+      #txtStr = st.session_state.srchStr + '\b'
+    #else:
+    txtStr = st.session_state.srchStr
     
     if st.session_state.hypStr == True:
       txtStr = txtStr.replace('-','*')
@@ -46,6 +46,9 @@ def run_search():
     #print(dfPrd)
     #print(prd)
     if prdCat == 'All Products':
+      if st.session_state.exStr == True:
+        dfOut = dfPrd.loc[(dfPrd['Text'].str.contains(txtStr+'\b',case=False, na=False, regex=True))]
+      else:
         dfOut = dfPrd.loc[(dfPrd['Text'].str.contains(txtStr,case=False, na=False, regex=True))]
     else:
         dfOut = dfPrd.loc[(dfPrd['Text'].str.contains(txtStr,case=False, na=False, regex=True)) & (dfPrd['Product Category'] == prdCat)]
