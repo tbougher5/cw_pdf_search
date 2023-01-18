@@ -27,6 +27,9 @@ def run_search():
     
     if st.session_state.exStr == True:
       txtStr = txtStr + '\b'
+      
+    if st.session_state.hypStr == True:
+      txtStr = txtStr.replace('-','*')
 
     for i in range(len(prdDFlist)):
         if prdCat in prdDFlist[i][0]:
@@ -41,9 +44,9 @@ def run_search():
     print(dfPrd)
     print(prd)
     if prdCat == 'All Products':
-        dfOut = dfPrd.loc[(dfPrd['Text'].str.contains(txtStr,case=False, na=False))]
+        dfOut = dfPrd.loc[(dfPrd['Text'].str.contains(txtStr,case=False, na=False, regex=True))]
     else:
-        dfOut = dfPrd.loc[(dfPrd['Text'].str.contains(txtStr,case=False, na=False)) & (dfPrd['Product Category'] == prdCat)]
+        dfOut = dfPrd.loc[(dfPrd['Text'].str.contains(txtStr,case=False, na=False, regex=True)) & (dfPrd['Product Category'] == prdCat)]
 
     dfOut['Count'] = dfOut['Count'].astype('int')
     df3 = dfOut.groupby('Product').sum().drop(columns = 'Page Number')
