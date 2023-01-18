@@ -47,7 +47,7 @@ def run_search():
     #print(prd)
     if prdCat == 'All Products':
       if st.session_state.exStr == True:
-        dfOut = dfPrd.loc[(dfPrd['Text'].str.contains(txtStr+'\b',case=False, na=False, regex=True))]
+        dfOut = dfPrd.loc[(dfPrd['Text'].str.contains('\\b'+txtStr+'\\b',case=False, na=False, regex=True))]
       else:
         dfOut = dfPrd.loc[(dfPrd['Text'].str.contains(txtStr,case=False, na=False, regex=True))]
     else:
