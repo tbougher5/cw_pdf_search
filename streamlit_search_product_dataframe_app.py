@@ -25,13 +25,14 @@ def run_search():
     
     prdCat = st.session_state.pc
     
-    #if st.session_state.exStr == True:
-      #txtStr = st.session_state.srchStr + '\b'
-    #else:
-    txtStr = st.session_state.srchStr
+    if st.session_state.exStr == True:
+      txtStr = '\\b' + st.session_state.srchStr + '\\b'
+    else:
+      txtStr = st.session_state.srchStr  
     
     if st.session_state.hypStr == True:
-      txtStr = txtStr.replace('-','*')
+      txtStr2 = txtStr.replace('-','')
+      txtStr3 = txtStr.replace('-',' ')
 
     for i in range(len(prdDFlist)):
         if prdCat in prdDFlist[i][0]:
@@ -46,8 +47,8 @@ def run_search():
     #print(dfPrd)
     #print(prd)
     if prdCat == 'All Products':
-      if st.session_state.exStr == True:
-        dfOut = dfPrd.loc[(dfPrd['Text'].str.contains('\\b'+txtStr+'\\b',case=False, na=False, regex=True))]
+      if st.session_state.hypStr == True:
+        dfOut = dfPrd.loc[(dfPrd['Text'].str.contains('|'.join([txtStr, txtStr2, txtStr3]),case=False, na=False, regex=True))]
       else:
         dfOut = dfPrd.loc[(dfPrd['Text'].str.contains(txtStr,case=False, na=False, regex=True))]
     else:
@@ -98,7 +99,7 @@ with st.container():
     col2.text('')
     col3.text('')
     col1.checkbox('Exact part only (e.g., GP-100 but not GP-1001)', key='exStr', value=True)
-    col2.checkbox('Include results without hyphen or space', key='hypStr', value=True)
+    col2.checkbox('Include results without hyphen or space', key='hypStr', value=False)
     col1.text('')
     col1.button(label='Calculate', key ='calc')
     #col1.button_calc = st.button(label='Calculate', key ='calc')
