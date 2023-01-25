@@ -34,16 +34,18 @@ def run_search():
       txtStr2 = txtStr.replace('-','')
       txtStr3 = txtStr.replace('-',' ')
 
-    for i in range(len(prdDFlist)):
-        if prdCat in prdDFlist[i][0]:
-            dfFile = prdDFlist[i][1]
-            break
+    #for i in range(len(prdDFlist)):
+    #    if prdCat in prdDFlist[i][0]:
+    #        dfFile = prdDFlist[i][1]
+    #        break'
+    dfFile = 'DF_All_Products_v4a.sav'
 
     #cols = ['Product Name','Full Name','Secondary Heading','Filename','Detail Heading 1','Detail Heading 2','Page Number','Search String']
     #workbook = xlsxwriter.Workbook(fOut)
     #worksheet = workbook.add_worksheet("Details Parts List") 
     #worksheet.write_row(0,0,cols)
-    dfPrd = pickle.load(open(dfFile,'rb'))
+    dfP = pickle.load(open(dfFile,'rb'))
+    dfPrd = dfP.loc[(dfP['Product Category'] == prdCat)]
     #print(dfPrd)
     #print(prd)
     if prdCat == 'All Products':
