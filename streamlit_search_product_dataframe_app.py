@@ -45,7 +45,10 @@ def run_search():
     #worksheet = workbook.add_worksheet("Details Parts List") 
     #worksheet.write_row(0,0,cols)
     dfP = pickle.load(open(dfFile,'rb'))
-    dfPrd = dfP.loc[(dfP['Product Category'] == prdCat)]
+    if prdCat == 'All Products':
+      dfPrd = dfP
+    else:
+      dfPrd = dfP.loc[(dfP['Product Category'] == prdCat)]
     #print(dfPrd)
     #print(prd)
     if prdCat == 'All Products':
