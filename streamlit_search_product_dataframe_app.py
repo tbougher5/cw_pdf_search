@@ -44,7 +44,8 @@ def run_search():
     #workbook = xlsxwriter.Workbook(fOut)
     #worksheet = workbook.add_worksheet("Details Parts List") 
     #worksheet.write_row(0,0,cols)
-    dfP = pickle.load(open(dfFile,'rb'))
+    dfP = pd.read_pickle(dfFile)
+    #dfP = pickle.load(open(dfFile,'rb'))
     if prdCat == 'All Products':
       dfPrd = dfP
     else:
