@@ -2,7 +2,7 @@ import pandas as pd
 import streamlit as st
 import pickle
 
-prdDFlist = [['All Products','DF_All_Products_v4b.sav'], ['Architectural Windows', 'DF_Architectural_Windows_v4.sav'], ['Curtain Wall', 'DF_Curtain_Wall_v4.sav']\
+prdDFlist = [['All Products','DF_All_Products_v4a.sav'], ['Architectural Windows', 'DF_Architectural_Windows_v4.sav'], ['Curtain Wall', 'DF_Curtain_Wall_v4.sav']\
              ,['Entrances','DF_Entrances_v4.sav'],['Storefront','DF_Storefront_v4.sav'],['Window Wall','DF_Window_Wall_v4.sav'],['Sun Controls', 'DF_Sun_Controls_v4.sav']]
 prdCat = ['All Products', 'Architectural Windows', 'Curtain Wall','Entrances','Storefront','Window Wall','Sun Controls']
 prd = 'Curtain Wall'
@@ -38,7 +38,7 @@ def run_search():
     #    if prdCat in prdDFlist[i][0]:
     #        dfFile = prdDFlist[i][1]
     #        break'
-    dfFile = 'DF_All_Products_v4b.sav'
+    dfFile = 'DF_All_Products_v4a.sav'
 
     #cols = ['Product Name','Full Name','Secondary Heading','Filename','Detail Heading 1','Detail Heading 2','Page Number','Search String']
     #workbook = xlsxwriter.Workbook(fOut)
