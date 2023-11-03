@@ -38,7 +38,7 @@ def run_search():
     #    if prdCat in prdDFlist[i][0]:
     #        dfFile = prdDFlist[i][1]
     #        break'
-    dfFile = 'DF_All_Products_v4a.sav'
+    dfFile = 'DF_All_Products_v4b.sav'
 
     #cols = ['Product Name','Full Name','Secondary Heading','Filename','Detail Heading 1','Detail Heading 2','Page Number','Search String']
     #workbook = xlsxwriter.Workbook(fOut)
